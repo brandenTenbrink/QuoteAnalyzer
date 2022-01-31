@@ -150,13 +150,10 @@ export default {
           this.selectedWeights.splice(partIndex, 1, undefined)
           this.selectedCount--
         }
-        else if (this.selectedIndices[partIndex] === undefined){
-          this.selectedIndices.splice(partIndex, 1, priceIndex)
-          this.selectedPrices.splice(partIndex, 1, price)
-          this.selectedWeights.splice(partIndex, 1, weight)
-          this.selectedCount++
-        }
         else {
+          if (this.selectedIndices[partIndex] === undefined) {
+            this.selectedCount++
+          }
           this.selectedIndices.splice(partIndex, 1, priceIndex)
           this.selectedPrices.splice(partIndex, 1, price)
           this.selectedWeights.splice(partIndex, 1, weight)
