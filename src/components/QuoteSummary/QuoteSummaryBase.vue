@@ -6,7 +6,7 @@
     </div>
     <div class="card">
       <h3>Invoice</h3>
-      <p class="h--2">{{getInvoice}}</p>
+      <p class="h--2">${{getInvoice}}</p>
     </div>
     <div class="card">
       <h3>Avg $/CWT</h3>
