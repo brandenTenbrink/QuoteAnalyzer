@@ -1,4 +1,4 @@
-# felux-project
+# Quote Analyzer
 
 ## Project setup
 ```
