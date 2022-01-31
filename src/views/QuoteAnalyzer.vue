@@ -22,9 +22,6 @@ export default {
     getPartsList() {
       return this.$store.getters.getPartsList
     },
-    getPartsSummary() {
-      return this.$store.getters.getPartsSummary
-    }
   }
 }
 </script>
