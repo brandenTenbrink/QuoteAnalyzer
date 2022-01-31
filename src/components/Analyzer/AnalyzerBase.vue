@@ -161,15 +161,12 @@ export default {
         this.$store.dispatch('updateQuoteSummary', { prices: this.selectedPrices, weights: this.selectedWeights, count: this.selectedCount })
     },
     updateSelectedPrices(newPrices) {
-      console.log(this.selectedPrices, this.selectedIndices, newPrices)
-
       const updatedPrices = this.selectedPrices.map((price, index) => {
         return newPrices[index][this.selectedIndices[index]]
       })
       this.selectedPrices = updatedPrices
 
       this.$store.dispatch('updateQuoteSummary', { prices: this.selectedPrices, weights: this.selectedWeights, count: this.selectedCount })
-      console.log(updatedPrices)
     }
   }
 }
