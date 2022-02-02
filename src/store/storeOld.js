@@ -43,21 +43,14 @@ export default createStore({
             state.partsList = partsList
         },
         updateQuoteSummary(state, params) {
-            const { selections, type, count } = params
-            const partsList = state.partsList;
+            const { prices, weights, count } = params
 
-            let averageCost=0, totalCost = 0, totalWeight = 0;
-            selections.forEach((row, rowIndex) => {
-                row.forEach((selection, columnIndex) => {
-                    const price = partsList[rowIndex].Quotes[columnIndex][type]
-                    const weight = partsList[rowIndex].Weight
-
-                    if (selection) {
-                        averageCost+= price
-                        totalCost+= (weight/100)* price
-                        totalWeight+= weight
-                    }
-                })
+            var averageCost=0, totalCost = 0;
+            prices.forEach((price, index) => {
+                if (price) {
+                    averageCost+=price
+                    totalCost+= (weights[index]/100)* price
+                }
             })
 
             if (count) {
@@ -66,6 +59,13 @@ export default createStore({
 
             state.averageCost = averageCost.toFixed(2)
             state.invoice = totalCost.toFixed(2)
+
+            var totalWeight = 0;
+            weights.forEach(weight => {
+                if (weight) {
+                    totalWeight+=weight
+                }
+            })
             state.totalWeight = totalWeight
 
         },

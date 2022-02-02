@@ -1,18 +1,18 @@
 <template>
   <div>
     <QuoteSummaryBase :part-summary="getPartsSummary" />
-    <AnalyzerBase :parts-list="getPartsList" />
+    <AnalyzerBasev2 :parts-list="getPartsList" />
   </div>
 </template>
 
 <script>
-import AnalyzerBase from '../components/Analyzer/AnalyzerBase.vue'
+import AnalyzerBasev2 from '../components/Analyzer/AnalyzerBasev2.vue'
 import QuoteSummaryBase from '../components/QuoteSummary/QuoteSummaryBase.vue'
 
 export default {
   name: 'QuoteAnalyzer',
   components: {
-    AnalyzerBase,
+    AnalyzerBasev2,
     QuoteSummaryBase,
   },
   created() {
