@@ -150,14 +150,16 @@ export default {
         }
         else {
           const existingSelection = this.selectedPrices[rowIndex].indexOf(true)
-          if (existingSelection !== -1) {
-            this.selectedPrices[rowIndex][existingSelection] = false
-          } else {
+
+          if (existingSelection === -1) {
             this.selectedPrices[rowIndex][columnIndex] = true
             this.selectedCount++
+          } else {
+            this.selectedPrices[rowIndex][columnIndex] = true
+            this.selectedPrices[rowIndex][existingSelection] = false
           }
         } 
-        this.$store.dispatch('updateQuoteSummary', { selections: this.selectedPrices, type: this.activePriceType, count: this.selectedCount })
+        this.updateSelectedPrices()
     },
     updateSelectedPrices() {
       this.$store.dispatch('updateQuoteSummary', { selections: this.selectedPrices, type: this.activePriceType, count: this.selectedCount })
